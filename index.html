@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كروري الجنيرال | وكالة تيك توك متخصصة</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- لصورة PNG --> 
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/krory2/k@main/7.png">
+    
+    <!-- لصورة SVG (المفضلة حديثاً) -->
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/krory2/k@main/7.png">
+    
+    <!-- تعيين حجم محدد -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<style>
+        /* أساسيات تيك توك */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* شريط التنقل */
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            z-index: 1000;
+            border-top: 1px solid #333;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .nav-item.active {
+            color: #FE2C55;
+        }
+        
+        .nav-item i {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        /* محتوى الصفحة */
+        .container {
+            padding-bottom: 80px;
+        }
+        
+        /* الهيدر */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #000, #FE2C55);
+        }
+        
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FE2C55;
+        }
+        
+        .tagline {
+            color: #ccc;
+            font-size: 1.1em;
+        }
+        
+        /* فيديو رئيسي */
+        .main-video {
+            width: 100%;
+            height: 70vh;
+            background: #111;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-container {
+            width: 300px;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(254, 44, 85, 0.3);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: white;
+        }
+        
+        /* أزرار تفاعل */
+        .video-controls {
+            position: absolute;
+            right: 20px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            background: rgba(254, 44, 85, 0.8);
+            transform: scale(1.1);
+        }
+        
+        /* الخدمات */
+        .section {
+            padding: 40px 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #FE2C55;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: #111;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #FE2C55;
+        }
+        
+        .service-card i {
+            font-size: 30px;
+            color: #FE2C55;
+            margin-bottom: 15px;
+        }
+        
+        /* التواصل */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #FE2C55;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #ff3d6a;
+            transform: translateY(-3px);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        /* الفوتر */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #111;
+            color: #888;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            font-size: 24px;
+        }
+        
+        .social-icons a {
+            color: #FE2C55;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #25F4EE;
+            transform: scale(1.2);
+        }
+        
+        /* حالة الإرسال */
+        #messageStatus {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        
+        .success {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .error {
+            background: #ff4444;
+            color: white;
+        }
+        
+        /* تحميل */
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* تفعيل الجوال */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-container {
+                width: 90%;
+                height: 400px;
+            }
+        }
+</style>
+</head>
+<body>
+<!-- المحتوى الرئيسي -->
+<div class="container">
+<!-- الهيدر -->
+<div class="header">
+<div class="logo">كروري الجنيرال</div>
+<div class="tagline">وكالة تيك توك متخصصة | نحو القمة باحترافية</div>
+</div>
+<!-- فيديو رئيسي -->
+<div class="main-video">
+<div class="video-container">
+<video autoplay loop muted playsinline>
+<source src="https://cdn.jsdelivr.net/gh/hkvkcgcc-cpu/krory-iq/1.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو
+</video>
+<div class="video-overlay">
+</div>
+</div>
+<!-- أزرار التفاعل -->
+<div class="video-controls">
+<button class="control-btn" onclick="likeVideo()">
+<i class="fas fa-heart"></i>
+</button>
+<button class="control-btn" onclick="commentVideo()">
+<i class="fas fa-comment"></i>
+</button>
+<button class="control-btn" onclick="shareVideo()">
+<i class="fas fa-share"></i>
+</button>
+</div>
+</div>
+<!-- قسم الخدمات -->
+<div class="section">
+<h2 class="section-title"><i class="fas fa-star"></i> خدماتنا</h2>
+<div class="services-grid">
+<div class="service-card">
+<i class="fas fa-users"></i>
+<h3>إدارة الحسابات</h3>
+<p>إدارة احترافية لحسابات تيك توك مع استراتيجيات نمو مضمونة.</p>
+</div>
+<div class="service-card">
+<i class="fas fa-chart-line"></i>
+<h3>زيادة المتابعين</h3>
+<p>نمو عضوي وحقيقي لمتابعيك بأحدث استراتيجيات التيك توك.</p>
+</div>
+<div class="service-card">
+<i class="fas fa-video"></i>
+<h3>إنتاج المحتوى</h3>
+<p>تصوير ومونتاج محتوى احترافي يجذب الملايين.</p>
+</div>
+<div class="service-card">
+<i class="fas fa-bullhorn"></i>
+<h3>إعلانات مدمجة</h3>
+<p>حملات إعلانية ذكية داخل منصة تيك توك.</p>
+</div>
+</div>
+</div>
+<!-- قسم التواصل -->
+<div class="section">
+<h2 class="section-title"><i class="fas fa-paper-plane"></i> تواصل معنا</h2>
+<form id="telegramForm" class="contact-form">
+<input type="text" id="name" placeholder="الاسم الكامل" required>
+<input type="email" id="email" placeholder="البريد الإلكتروني" required>
+<input type="tel" id="phone" placeholder="رقم الواتساب" required>
+<input type="text" id="tiktok" placeholder="اسم المستخدم في تيك توك (مثال: @username)" required>
+<textarea id="message" placeholder="أخبرنا عن مشروعك..."></textarea>
+<button type="submit" class="submit-btn" id="submitBtn">
+<i class="fas fa-paper-plane"></i>ارسال طلب</button>
+<div id="messageStatus"></div>
+</form>
+</div>
+<!-- الفوتر -->
+<div class="footer">
+<h3>كروري الجنيرال | وكالة تيك توك</h3>
+<div class="social-icons">
+<a href="https://www.tiktok.com/@lhe_212"><i class="fab fa-tiktok"></i>
+</a>
+</div>
+<p>© 2024 جميع الحقوق محفوظة | تصميم بتقنية تيك توك</p>
+</div>
+</div>
+<!-- شريط التنقل -->
+<nav class="navbar">
+<a href="#" class="nav-item active">
+<i class="fas fa-home"></i>
+<span>الرئيسية</span>
+</a>
+<a href="#" class="nav-item">
+<i class="fas fa-compass"></i>
+<span>الاكتشاف</span>
+</a>
+<a href="#" class="nav-item">
+<i class="fas fa-plus-square"></i>
+<span>إنشاء</span>
+</a>
+<a href="#" class="nav-item">
+<i class="fas fa-envelope"></i>
+<span>الرسائل</span>
+</a>
+<a href="#" class="nav-item">
+<i class="fas fa-user"></i>
+<span>بروفايل</span>
+</a>
+</nav>
+<script>
+        // إعدادات بوت التلجرام
+        const TELEGRAM_BOT_TOKEN = '8231236887:AAE8LuQGONhaLLtkeFmYotGDoQmyuNiNFp4';
+        const TELEGRAM_CHAT_ID = '7993669120';
+        
+        // تفعيل أزرار التفاعل
+        function likeVideo() {
+            const btn = event.target.closest('.control-btn');
+            btn.style.background = '#FE2C55';
+            btn.innerHTML = '<i class="fas fa-heart"></i>';
+            // صوت الإعجاب (اختياري)
+            try {
+                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3');
+                audio.play();
+            } catch (e) {}
+        }
+        
+        function commentVideo() {
+            const comment = prompt('اكتب تعليقك هنا:');
+            if (comment) {
+                alert('تم إضافة تعليقك: ' + comment);
+            }
+        }
+        
+        function shareVideo() {
+            alert('تم نسخ رابط الفيديو للحافظة! شاركه الآن 📲');
+        }
+        
+        // دالة إرسال البيانات إلى التلجرام
+        async function sendToTelegram(formData) {
+            const message = `
+📩 *طلب جديد من موقع كروري الجنيرال*
+
+👤 **الاسم:** ${formData.name}
+📧 **البريد:** ${formData.email}
+📱 **الواتساب:** ${formData.phone}
+🎬 **تيك توك:** ${formData.tiktok}
+💬 **الرسالة:** ${formData.message}
+
+🕒 **الوقت:** ${new Date().toLocaleString('ar-SA')}
+            `;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                const data = await response.json();
+                return data.ok;
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                return false;
+            }
+        }
+
+        // تفعيل النموذج
+        document.getElementById('telegramForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('messageStatus');
+            
+            // جمع البيانات
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                tiktok: document.getElementById('tiktok').value,
+                message: document.getElementById('message').value || 'لا توجد رسالة'
+            };
+            
+            // تغيير حالة الزر
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            submitBtn.disabled = true;
+            statusDiv.style.display = 'none';
+            
+            // إرسال البيانات
+            const isSent = await sendToTelegram(formData);
+            
+            if (isSent) {
+                // نجاح الإرسال
+                statusDiv.textContent = '✅ تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.';
+                statusDiv.className = 'success';
+                
+                // إظهار رسالة تأكيد للمستخدم
+                alert('📨 تم إرسال طلبك إلى التلجرام بنجاح!');
+                
+                // إعادة تعيين النموذج
+                this.reset();
+            } else {
+                // فشل الإرسال
+                statusDiv.textContent = '❌ حدث خطأ في الإرسال، حاول مرة أخرى لاحقاً.';
+                statusDiv.className = 'error';
+            }
+            
+            statusDiv.style.display = 'block';
+            
+            // إعادة تعيين الزر
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الطلب إلى التلجرام';
+            submitBtn.disabled = false;
+            
+            // إخفاء الرسالة بعد 10 ثواني
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 10000);
+        });
+        
+        // تفعيل التنقل
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+</script>
+</body>
+  </html>
